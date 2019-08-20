@@ -189,6 +189,9 @@ export abstract class FormProperty {
     expression: string = ''): boolean {
     try {
       let valid = false
+      if (value === null) {
+        return false;
+      }
       if (expression.indexOf('$ANY$') !== -1) {
         valid = value.length > 0;
       } else if ((expression||[]).toString().indexOf('$EXP$') === 0) {
